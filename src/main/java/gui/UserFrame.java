@@ -1,3 +1,5 @@
+package gui;
+
 import java.awt.*;
 import javax.swing.*;
 
@@ -7,7 +9,7 @@ public class UserFrame {
             JFrame frame = new SimpleFrame();
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setVisible(true);
-            frame.setIconImage(new ImageIcon("/neo4j-icon.png").getImage());    //Bug:Not show?
+            frame.setIconImage(new ImageIcon("/gui/neo4j-icon.png").getImage());    //Bug:Not show?
             frame.setTitle("Neo4j Database Management");
             frame.setLocation(0, 0); //左上方開始起算
         });
