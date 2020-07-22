@@ -36,9 +36,10 @@ public class HelloWorldExample implements AutoCloseable {
         }
     }
 
+//    mac:password win:andy0212
     public static void main(String... args) throws Exception {
         try (HelloWorldExample greeter = new HelloWorldExample("bolt://localhost:7687",
-                "neo4j", "andy0212")) {
+                "neo4j", "password")) {
             greeter.printGreeting("hello, world");
         }
     }
