@@ -17,10 +17,12 @@ public class DriverLifecycleExample implements AutoCloseable
     public DriverLifecycleExample( String uri, String user, String password )
     {
         driver = GraphDatabase.driver( uri, AuthTokens.basic( user, password ) );
+        System.out.println("Connecting...");
     }
     @Override
     public void close() throws Exception
     {
+        System.out.println("Closing Down");
         driver.close();
     }
 }

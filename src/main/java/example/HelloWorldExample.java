@@ -1,12 +1,8 @@
 package example;
 
-import org.neo4j.driver.AuthTokens;
-import org.neo4j.driver.Driver;
-import org.neo4j.driver.GraphDatabase;
-import org.neo4j.driver.Session;
-import org.neo4j.driver.Result;
-import org.neo4j.driver.Transaction;
-import org.neo4j.driver.TransactionWork;
+import org.neo4j.driver.*;
+
+import java.util.Scanner;
 
 import static org.neo4j.driver.Values.parameters;
 
@@ -40,6 +36,9 @@ public class HelloWorldExample implements AutoCloseable {
 
 //    mac:password win:andy0212
     public static void main(String... args) throws Exception {
+        System.out.println("Password:");
+        Scanner scn = new Scanner(System.in);
+        String password = scn.nextLine();
         try (HelloWorldExample greeter = new HelloWorldExample("bolt://localhost:7687",
                 "neo4j", "password")) {
             greeter.printGreeting("hello, world");
