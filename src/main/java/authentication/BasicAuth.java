@@ -21,4 +21,8 @@ public class BasicAuth implements AutoCloseable{
     public void close() throws Exception {
         driver.close();
     }
+
+    public Driver getDriver(){
+        return driver;
+    }
 }

@@ -7,6 +7,7 @@ package dbms.txmanager;
  * @date 2020/8/28 下午 08:55
  */
 
+import authentication.BasicAuth;
 import org.neo4j.driver.*;
 
 import java.util.ArrayList;
@@ -63,8 +64,8 @@ public class PassingBookMarksEx {
         System.out.print("Password:");
         Scanner scn = new Scanner(System.in);
         String password = scn.nextLine();
-        driver = GraphDatabase.driver("neo4j://localhost:7687", AuthTokens.basic("neo4j", password));
-        //TODO: Autoclosing?
+//        driver = GraphDatabase.driver("neo4j://localhost:7687", AuthTokens.basic("neo4j", password));
+        driver = new <Driver>BasicAuth("neo4j://localhost:7687","neo4j", password).getDriver();
 
         try (Session session1 = driver.session(builder().withDefaultAccessMode(AccessMode.WRITE).build())) {
             session1.writeTransaction(tx -> addCompany(tx, "Wayne Enterprises"));
@@ -82,6 +83,8 @@ public class PassingBookMarksEx {
             session3.writeTransaction(tx -> makeFriends(tx, "Alice", "Bob"));
             session3.readTransaction(this::printFriends);
         }
+
+        driver.close();
     }
 
 }
