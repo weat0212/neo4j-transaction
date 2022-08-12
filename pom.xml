@@ -40,7 +40,7 @@
         <dependency>
             <groupId>org.neo4j.procedure</groupId>
             <artifactId>apoc</artifactId>
-            <version>4.1.0.0</version>
+            <version>4.3.0.7</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.neo4j.test/neo4j-harness -->
